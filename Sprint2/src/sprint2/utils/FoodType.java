@@ -7,14 +7,12 @@ package sprint2.utils;
 
 /**
  *
- * @author warren
- * enumeration type for the status of a table
+ * @author warre
  */
-
-public enum Status {
-    
-    WHITE,
-    GREEN,
-    YELLOW,
-    RED,
+public enum FoodType {
+    Appetizer,
+    Salad,
+    Sandwiches,
+    Burger,
+    Beverage,
 }
