@@ -11,4 +11,7 @@ package sprint2.models;
  */
 public class Employee {
     
+    private String id;
+    
+    
 }
