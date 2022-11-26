@@ -10,17 +10,24 @@ package sprint2.controllers;
  * @author warren
  */
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sprint2.utils.FileUtils;
+import sprint2.utils.PageUtils;
 
 public class loginPageController {
 
@@ -50,13 +57,14 @@ public class loginPageController {
     }
 
     @FXML
-    void login(ActionEvent event) throws FileNotFoundException {
+    void login(ActionEvent event) throws FileNotFoundException, IOException {
         ArrayList<String> lines= FileUtils.getLines("src/sprint2/files/login.txt");
         HashMap<String, String> credentials = FileUtils.getCredentials(lines);
         String user = username.getText();
         String pass = password.getText();
         
-
+        Node source = (Node) event.getSource();
+        PageUtils page = new PageUtils();
         //username does not exist
         if(!credentials.containsKey(user)){
             Alert forgot = new Alert(Alert.AlertType.ERROR);
@@ -79,10 +87,18 @@ public class loginPageController {
             success.setHeaderText("SUCCESS");
             success.setContentText("Welcome Back !!!");
             success.showAndWait();
+            try {
+                page.loadPage("/sprint2/views/mainMenuPage.fxml");
+            } catch (IOException ex) {
+                System.out.println("Page Menu Screen not found!!!");
+                Logger.getLogger(loginPageController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            PageUtils.closePage(source);
+            
         }
         
         //Gracefully close the login screen
-//        Node source = (Node) event.getSource();
+        
 //        Stage stage = (Stage) source.getScene().getWindow();
 //        stage.close();
     }

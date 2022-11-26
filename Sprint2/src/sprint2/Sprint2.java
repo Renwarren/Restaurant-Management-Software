@@ -27,6 +27,7 @@ public class Sprint2 extends Application {
 //      stage.getIcons().add(new Image("sprint2/images/logo.png"));
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
     }
 
     /**
