@@ -53,6 +53,28 @@ public class FileUtils {
         }
         return credentials;
     }
+    
+    /**
+     * 
+     * @param lines
+     * @return HashMap<username, information[]>
+     * information are: firstName, lastName,Job
+     */
+    public static HashMap<String, String[]> getEmployees(ArrayList<String> lines){
+        
+            HashMap<String, String[]> employees = new HashMap<>();
+            
+            for (String line: lines){
+                //split first into username:information
+                String[] values = line.split(":");
+                String username = values[0];
+                String information [] = values[1].split(",");
+                employees.put(username, information);
+            }
+            
+            
+            return employees;
+        }
 
 }
     

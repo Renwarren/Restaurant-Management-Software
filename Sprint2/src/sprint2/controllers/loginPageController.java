@@ -84,9 +84,19 @@ public class loginPageController {
         
         //username and password valid
         if(credentials.containsKey(user) && credentials.get(user).equals(pass) ){
+            
+            lines= FileUtils.getLines("src/sprint2/files/employees.txt");
+            HashMap<String, String[]> employees = FileUtils.getEmployees(lines);
+            
+            String[] information = employees.get(user);
+            String firstName = information[0];
+            String lastName = information[1];
+            String Job = information[2];
+            
+            
             Alert success = new Alert(Alert.AlertType.INFORMATION);
-            success.setHeaderText("SUCCESS");
-            success.setContentText("Welcome Back !!!");
+            success.setHeaderText("CONNECTION SUCCESSFUL");
+            success.setContentText("Welcome back "+firstName+" !");
             success.showAndWait();
             
             try {
@@ -100,10 +110,6 @@ public class loginPageController {
             
         }
         
-        //Gracefully close the login screen
-        
-//        Stage stage = (Stage) source.getScene().getWindow();
-//        stage.close();
     }
 
 }
