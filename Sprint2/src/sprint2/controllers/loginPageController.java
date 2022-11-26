@@ -65,6 +65,7 @@ public class loginPageController {
         
         Node source = (Node) event.getSource();
         PageUtils page = new PageUtils();
+        
         //username does not exist
         if(!credentials.containsKey(user)){
             Alert forgot = new Alert(Alert.AlertType.ERROR);
@@ -87,12 +88,14 @@ public class loginPageController {
             success.setHeaderText("SUCCESS");
             success.setContentText("Welcome Back !!!");
             success.showAndWait();
+            
             try {
                 page.loadPage("/sprint2/views/mainMenuPage.fxml");
             } catch (IOException ex) {
                 System.out.println("Page Menu Screen not found!!!");
                 Logger.getLogger(loginPageController.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
             PageUtils.closePage(source);
             
         }
