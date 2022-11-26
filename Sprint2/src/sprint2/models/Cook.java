@@ -10,5 +10,11 @@ package sprint2.models;
  * @author warre
  */
 public class Cook extends Employee{
+
+    public Cook(String id, String firstName, String lastName) {
+        super(id, firstName, lastName);
+    }
+    
+    
     
 }

@@ -1,8 +1,8 @@
 warren01:Warren,Fongang,M
-alice07:Alice,Nakiri,W
+alice07:Alice,Nakiri,M
 adrian75:Adrian,Yorkyy,W
 thurston04:Thurston,Howells,C
-venus49:Venus,Porter,M
+venus49:Venus,Porter,W
 ryan47:Ryan,Mustang,C
 mamadou02:Mamadou,Ben,C
 samira74:Samira,Yamfam,W

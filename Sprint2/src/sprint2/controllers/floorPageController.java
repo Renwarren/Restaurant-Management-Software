@@ -5,50 +5,41 @@
  */
 package sprint2.controllers;
 
-/**
- *
- * @author warren
- */
-
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import sprint2.utils.PageUtils;
 
-public class MainMenuPageController {
+/**
+ *
+ * @author warre
+ */
+public class floorPageController {
+    
+    
+    @FXML
+    private Button A1;
 
     @FXML
-    private Button floorButton;
+    private Button A2;
+
+    @FXML
+    private Button A3;
+
+    @FXML
+    private Button A4;
 
     @FXML
     private Button logoutButton;
-
+    
     @FXML
-    private Button orderButton;
-
-    @FXML
-    private Button profileButton;
-
-    @FXML
-    void loadOrder(ActionEvent event) {
-
-    }
-
-    @FXML
-    void loadProfile(ActionEvent event) {
-
-    }
-
-    @FXML
-    void loadStore(ActionEvent event) {
-
-    }
-
+    private Label name;
+    
     @FXML
     void logout(ActionEvent event) throws IOException {
-        
         Node source = (Node) event.getSource();
         PageUtils page = new PageUtils();
         boolean decision = PageUtils.showAlertConfirmation("DISCONNECTION", "Do you really want to log out?");
@@ -58,7 +49,13 @@ public class MainMenuPageController {
             PageUtils.closePage(source);
         }
 
-          
+        
     }
 
+    @FXML
+    void waiterInteraction(ActionEvent event) {
+
+    }
+
+    
 }

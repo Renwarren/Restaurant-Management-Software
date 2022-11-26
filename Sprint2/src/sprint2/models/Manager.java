@@ -10,5 +10,10 @@ package sprint2.models;
  * @author warre
  */
 public class Manager extends Employee{
+
+    public Manager(String id, String firstName, String lastName) {
+        super(id, firstName, lastName);
+    }
+     
     
 }

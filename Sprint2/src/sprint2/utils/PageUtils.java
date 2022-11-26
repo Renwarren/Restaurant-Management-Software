@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 /**
@@ -33,4 +35,32 @@ public class PageUtils {
         stage.close();
     }
     
+    public static void showAlertError(String header, String context){
+        Alert forgot = new Alert(Alert.AlertType.ERROR);
+        forgot.setHeaderText(header);
+        forgot.setContentText(context);
+        forgot.showAndWait();
+    }
+    
+    public static void showAlertInformation(String header, String context){
+        Alert forgot = new Alert(Alert.AlertType.INFORMATION);
+        forgot.setHeaderText(header);
+        forgot.setContentText(context);
+        forgot.showAndWait();
+    }
+
+    /**
+     * 
+     * @param header
+     * @param context
+     * @return a boolean value depending on the answer of the alert 
+     */
+    public static boolean showAlertConfirmation(String header, String context){
+        Alert forgot = new Alert(Alert.AlertType.CONFIRMATION);
+        forgot.setHeaderText(header);
+        forgot.setContentText(context);
+        forgot.showAndWait();
+        
+        return forgot.getResult() != ButtonType.CANCEL;
+    }
 }

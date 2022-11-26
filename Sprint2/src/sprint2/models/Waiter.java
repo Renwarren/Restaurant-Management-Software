@@ -5,10 +5,19 @@
  */
 package sprint2.models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author warre
  */
 public class Waiter extends Employee{
+    
+    ArrayList<Table> tables = new ArrayList<>();
+
+    public Waiter(String id, String firstName, String lastName) {
+        super(id, firstName, lastName);
+    }
+    
     
 }
