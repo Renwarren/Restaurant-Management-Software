@@ -15,4 +15,6 @@ public enum FoodType {
     Sandwiches,
     Burger,
     Beverage,
+    
+    
 }

@@ -6,12 +6,14 @@
 package sprint2.utils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -20,14 +22,14 @@ import javafx.stage.Stage;
  */
 public class PageUtils {
     
-    public void loadPage(String FXMLPath) throws IOException{
-        
+    public void loadPage(String FXMLPath) throws IOException{        
         Parent root = FXMLLoader.load(getClass().getResource(FXMLPath));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
+        stage.getIcons().add(new Image("sprint2/images/logo.png"));
     }
     
     public static void closePage(Node source){
@@ -63,4 +65,7 @@ public class PageUtils {
         
         return forgot.getResult() != ButtonType.CANCEL;
     }
+    
+
+    
 }

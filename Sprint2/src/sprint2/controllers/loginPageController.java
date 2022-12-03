@@ -80,6 +80,7 @@ public class loginPageController {
             String Job = information[2];
             
             PageUtils.showAlertInformation("CONNECTION SUCCESSFUL", "Welcome back "+firstName+" !");
+            FileUtils.writeCurrentEmployee(user);
             
             switch (Job) {
                 case "M":

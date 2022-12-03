@@ -23,6 +23,12 @@ public class Table {
         this.order = order;
     }
 
+    public Table(String id) {
+        this.id = id;
+    }
+    
+    
+
     public String getId() {
         return id;
     }

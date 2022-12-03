@@ -13,11 +13,23 @@ import java.util.ArrayList;
  */
 public class Waiter extends Employee{
     
-    ArrayList<Table> tables = new ArrayList<>();
+    String[] tables;
 
     public Waiter(String id, String firstName, String lastName) {
         super(id, firstName, lastName);
     }
+
+    public String[] getTables() {
+        return tables;
+    }
+
+    public void setTables(String[] tables) {
+        this.tables = tables;
+    }
+
+    
+    
+    
     
     
 }

@@ -5,8 +5,6 @@
  */
 package sprint2.models;
 
-import sprint2.utils.FoodType;
-
 /**
  *
  * @author warre
@@ -15,13 +13,13 @@ public class Item {
     
     String name;
     String id;
-    Double Price;
-    FoodType type;
+    double price;
+    String type;
 
-    public Item(String name, String id, Double Price, FoodType type) {
+    public Item(String name, String id, double Price, String type) {
         this.name = name;
         this.id = id;
-        this.Price = Price;
+        this.price = Price;
         this.type = type;
     }
 
@@ -42,22 +40,27 @@ public class Item {
     }
 
     public Double getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(Double Price) {
-        this.Price = Price;
+        this.price = Price;
     }
 
-    public FoodType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(FoodType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
     public Item() {
+    }
+    
+    @Override
+    public String toString(){
+        return this.getName() + ": $" + String.valueOf(this.getPrice());
     }
     
     

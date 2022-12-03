@@ -20,11 +20,11 @@ public class Sprint2 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/loginPage.fxml"));
-        
+//        Parent root = FXMLLoader.load(getClass().getResource("views/loginPage.fxml"));
+          Parent root = FXMLLoader.load(getClass().getResource("views/floorPage.fxml"));
         Scene scene = new Scene(root);
         
-//      stage.getIcons().add(new Image("sprint2/images/logo.png"));
+      stage.getIcons().add(new Image("sprint2/images/logo.png"));
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);

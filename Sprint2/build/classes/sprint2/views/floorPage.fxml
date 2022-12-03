@@ -7,17 +7,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sprint2.controllers.floorPageController">
    <bottom>
       <AnchorPane prefHeight="52.0" prefWidth="722.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="logoutButton" layoutX="296.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logout" prefHeight="52.0" prefWidth="154.0" style="-fx-background-color: turquoise;" text="LOGOUT">
+            <Button fx:id="logoutButton" layoutX="255.0" mnemonicParsing="false" onAction="#logout" prefHeight="55.0" prefWidth="154.0" style="-fx-background-color: turquoise;" text="LOGOUT">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </Button>
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="296.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="255.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Logout.png" />
                </image>
@@ -28,43 +27,43 @@
    <center>
       <AnchorPane id="AnchorPane" prefHeight="544.0" prefWidth="721.0" style="-fx-background-color: GREY;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="A1" layoutX="40.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" textAlignment="CENTER" />
-            <Button layoutX="153.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="524.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="630.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="404.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="275.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button fx:id="A2" layoutX="40.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A2" />
-            <Button layoutX="153.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="524.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="630.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="404.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="275.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button fx:id="A3" layoutX="41.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A3" />
-            <Button layoutX="154.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="525.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="631.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="405.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="276.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button fx:id="A4" layoutX="42.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A4" />
-            <Button layoutX="155.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="526.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="632.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="406.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="277.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="43.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="156.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="527.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="633.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="407.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
-            <Button layoutX="278.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" text="A1" />
+            <Button fx:id="A1" layoutX="40.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" textAlignment="CENTER" />
+            <Button fx:id="B1" layoutX="153.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="E1" layoutX="524.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="F1" layoutX="630.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="D1" layoutX="404.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="C1" layoutX="275.0" layoutY="97.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="A2" layoutX="40.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="B2" layoutX="153.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="E2" layoutX="524.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="F2" layoutX="630.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="D2" layoutX="404.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="C2" layoutX="275.0" layoutY="172.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="A3" layoutX="41.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="B3" layoutX="154.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="E3" layoutX="525.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="F3" layoutX="631.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="D3" layoutX="405.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="C3" layoutX="276.0" layoutY="254.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="A4" layoutX="42.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="B4" layoutX="155.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="E4" layoutX="526.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="F4" layoutX="632.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="D4" layoutX="406.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="C4" layoutX="277.0" layoutY="333.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="A5" layoutX="43.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="B5" layoutX="156.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="E5" layoutX="527.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="F5" layoutX="633.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="D5" layoutX="407.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="C5" layoutX="278.0" layoutY="412.0" mnemonicParsing="false" onAction="#waiterInteraction" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: WHITE;" />
          </children>
       </AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="42.0" prefWidth="722.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="65.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="65.0" fitWidth="92.0" layoutX="309.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo.png" />
                </image>

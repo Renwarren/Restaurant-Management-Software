@@ -49,6 +49,14 @@ public class Order {
         this.TableId = TableId;
     }
 
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
  
 
     public Order() {
