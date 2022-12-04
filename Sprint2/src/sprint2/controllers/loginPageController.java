@@ -19,9 +19,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import sprint2.models.Cook;
-import sprint2.models.Manager;
-import sprint2.models.Waiter;
 import sprint2.utils.FileUtils;
 import sprint2.utils.PageUtils;
 
@@ -50,8 +47,7 @@ public class loginPageController {
     @FXML
     void login(ActionEvent event) throws FileNotFoundException, IOException {
         
-        ArrayList<String> lines= FileUtils.getLines("src/sprint2/files/login.txt");
-        HashMap<String, String> credentials = FileUtils.getCredentials(lines);
+        HashMap<String, String> credentials = FileUtils.getCredentials();
         String user = username.getText();
         String pass = password.getText();
         
@@ -71,8 +67,7 @@ public class loginPageController {
         //username and password valid
         if(credentials.containsKey(user) && credentials.get(user).equals(pass) ){
             
-            lines = FileUtils.getLines("src/sprint2/files/employees.txt");
-            HashMap<String, String[]> employees = FileUtils.getEmployees(lines);
+            HashMap<String, String[]> employees = FileUtils.getEmployees();
             
             String[] information = employees.get(user);
             String firstName = information[0];
@@ -80,7 +75,7 @@ public class loginPageController {
             String Job = information[2];
             
             PageUtils.showAlertInformation("CONNECTION SUCCESSFUL", "Welcome back "+firstName+" !");
-            
+
             
             switch (Job) {
                 case "M":

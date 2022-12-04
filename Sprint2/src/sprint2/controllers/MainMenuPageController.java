@@ -37,8 +37,12 @@ public class MainMenuPageController {
     }
 
     @FXML
-    void loadProfile(ActionEvent event) {
-
+    void loadProfile(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        PageUtils page = new PageUtils();
+        
+        page.loadPage("/sprint2/views/managerPage.fxml");
+        PageUtils.closePage(source);
     }
 
     @FXML
