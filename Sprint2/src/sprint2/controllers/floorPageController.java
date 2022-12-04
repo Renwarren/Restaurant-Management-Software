@@ -21,7 +21,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import sprint2.models.Table;
-import sprint2.models.Waiter;
 import sprint2.utils.FileUtils;
 import sprint2.utils.PageUtils;
 

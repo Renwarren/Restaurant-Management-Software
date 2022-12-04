@@ -20,8 +20,8 @@ public class Sprint2 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("views/loginPage.fxml"));
-          Parent root = FXMLLoader.load(getClass().getResource("views/floorPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/loginPage.fxml"));
+        // Parent root = FXMLLoader.load(getClass().getResource("views/managerPage.fxml"));
         Scene scene = new Scene(root);
         
       stage.getIcons().add(new Image("sprint2/images/logo.png"));
@@ -29,12 +29,11 @@ public class Sprint2 extends Application {
         stage.show();
         stage.setResizable(false);
     }
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

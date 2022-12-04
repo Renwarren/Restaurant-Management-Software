@@ -16,6 +16,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import sprint2.models.Order;
 import sprint2.models.OrderQueue;
@@ -52,7 +53,7 @@ public class FileUtils {
      * @param lines: lines gotten from the reading of a text file
      * @return HashMap with key = username and value = password  
      */
-    public static HashMap<String,String> getCredentials(ArrayList<String> lines){
+    public static HashMap<String,String> parseCredentialsFromFile(ArrayList<String> lines){
         
         HashMap<String, String> credentials = new HashMap<>();
         
@@ -63,13 +64,29 @@ public class FileUtils {
         return credentials;
     }
     
+    public static HashMap<String,String> getCredentials() throws FileNotFoundException {
+        return FileUtils.parseCredentialsFromFile(
+            FileUtils.getLines(
+                "src/sprint2/files/login.txt"
+            )
+        );
+    }
+    
+    public static HashMap<String, String[]> getEmployees() throws FileNotFoundException {
+        return FileUtils.parseEmployeeFile(
+            FileUtils.getLines(
+                "src/sprint2/files/employees.txt"
+            )
+        );
+    }
+    
     /**
      * 
      * @param lines
      * @return HashMap with key=username and value = information
      * information are: firstName, lastName,Job
      */
-    public static HashMap<String, String[]> getEmployees(ArrayList<String> lines){
+    public static HashMap<String, String[]> parseEmployeeFile(ArrayList<String> lines){
         
             HashMap<String, String[]> employees = new HashMap<>();
             
@@ -84,6 +101,105 @@ public class FileUtils {
             
             return employees;
         }
+
+    public static void writeEmployeesToFile(HashMap<String, String[]> employees) throws FileNotFoundException, IOException {
+        // Opens without append mode to completely re-write file to ensure no copies
+        java.io.PrintWriter output = new java.io.PrintWriter(
+            new java.io.FileWriter(
+                "src/sprint2/files/employees.txt",
+                false
+            )
+        );
+
+        // Writes each employee to the file using the PrintWriter following the specified
+        // employees.txt syntax
+        for (Map.Entry<String, String[]> employee : employees.entrySet()) {
+            output.printf(
+                "%s:%s,%s,%s\n", 
+                employee.getKey(), 
+                employee.getValue()[0],
+                employee.getValue()[1],
+                employee.getValue()[2]
+            );
+        }
+
+        output.close();
+    }
+    
+    public static void writeLoginsToFile(HashMap<String, String> logins) throws FileNotFoundException, IOException {
+        // Opens without append mode to completely re-write file to ensure no copies
+        java.io.PrintWriter output = new java.io.PrintWriter(
+            new java.io.FileWriter(
+                "src/sprint2/files/login.txt",
+                false
+            )
+        );
+
+        // Writes each login to the file using the PrintWriter following the specified
+        // login.txt syntax
+        for (Map.Entry<String, String> login : logins.entrySet()) {
+            output.printf(
+                "%s,%s\n", 
+                login.getKey(), 
+                login.getValue()
+            );
+        }
+
+        output.close();
+    }
+    
+    public static boolean addEmployee(
+        HashMap<String, String[]> employees, 
+        HashMap<String, String> logins, 
+        String username, 
+        String password, 
+        String firstName, 
+        String lastName, 
+        String jobType
+    ) {
+        if(!logins.containsKey(username)) {
+            logins.put(username, password);
+            employees.put(username, new String[]{firstName, lastName, jobType});
+
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public static boolean removeEmployee(
+        HashMap<String, String[]> employees,
+        HashMap<String, String> logins, 
+        String username
+    ) {
+        if(logins.containsKey(username)) {
+            logins.remove(username);
+            employees.remove(username);
+            
+            return true;
+        }
+
+        return false;
+    }
+    
+    public static boolean editEmployee(
+        HashMap<String, String[]> employees, 
+        HashMap<String, String> logins, 
+        String username, 
+        String password, 
+        String firstName, 
+        String lastName, 
+        String jobType
+    ) {
+        if(logins.containsKey(username)) {
+            logins.put(username, password);
+            employees.put(username, new String[]{firstName, lastName, jobType});
+
+            return true;
+        }
+        
+        return false;
+    }
     
     public static HashMap<String, String[]> getItems(ArrayList<String> lines){
         
@@ -185,7 +301,7 @@ public class FileUtils {
             return o;
     }
     
-        public static void serializeMapOrders(HashMap<String,Order> o) throws FileNotFoundException, IOException{
+    public static void serializeMapOrders(HashMap<String,Order> o) throws FileNotFoundException, IOException{
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("src/sprint2/files/mapOrder.ser")));
  
         oos.writeObject(o);
@@ -207,10 +323,19 @@ public class FileUtils {
               
             return o;
     }
-    
-    
+
+    public static void printEmployees(HashMap<String, String[]> employees, HashMap<String, String> logins) {
+        int i = 0;
+        for (String login : logins.keySet()) {
+            System.out.printf(
+                "%-3d> Login: %-15s Password: %-15s FN: %-15s LN: %-15s Job: %-15s\n", 
+                i++,
+                login, 
+                logins.get(login),
+                employees.get(login)[0],
+                employees.get(login)[1],
+                employees.get(login)[2]
+            );
+        }
+    }
 }
-
-
-    
-
