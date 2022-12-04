@@ -151,12 +151,13 @@ public class floorPageController implements Initializable{
             new PageUtils().loadPage("/sprint2/views/makeOrderPage.fxml");
             
                         
-            node.setStyle("-fx-background-color: ORANGE;");
+            node.setStyle("-fx-background-color: YELLOW;");
         }
         
         //see order
-        else if (node.getStyle().equals("-fx-background-color: ORANGE;")){
-            
+        else if (node.getStyle().equals("-fx-background-color: YELLOW;")){
+            FileUtils.writeCurrentTable(node.getId(),user);
+            new PageUtils().loadPage("/sprint2/views/viewOrderPage.fxml");
         }
         
         //clean table

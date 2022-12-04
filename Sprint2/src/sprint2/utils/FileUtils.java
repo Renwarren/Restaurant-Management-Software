@@ -17,6 +17,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import sprint2.models.Order;
 import sprint2.models.OrderQueue;
 
 /**
@@ -28,7 +29,7 @@ public class FileUtils {
     
     /**
      * 
-     * @param url
+     * @param url URL of the page to open
      * @return ArrayList lines
      * @throws FileNotFoundException
      * Get the lines of a text File
@@ -48,8 +49,8 @@ public class FileUtils {
     /**
      * 
      * 
-     * @param lines
-     * @return HashMap<username,password>
+     * @param lines: lines gotten from the reading of a text file
+     * @return HashMap with key = username and value = password  
      */
     public static HashMap<String,String> getCredentials(ArrayList<String> lines){
         
@@ -65,7 +66,7 @@ public class FileUtils {
     /**
      * 
      * @param lines
-     * @return HashMap<username, information[]>
+     * @return HashMap with key=username and value = information
      * information are: firstName, lastName,Job
      */
     public static HashMap<String, String[]> getEmployees(ArrayList<String> lines){
@@ -99,7 +100,11 @@ public class FileUtils {
         }
     
     
-    
+    /**
+     * 
+     * @param lines lines got from reading a text file
+     * @return HashMap of key,value = username,tablesId
+     */
     public static HashMap<String, String[]> getTables(ArrayList<String> lines){
         
             HashMap<String, String[]> employeeTable = new HashMap<>();
@@ -113,14 +118,19 @@ public class FileUtils {
             }
             return employeeTable;
         }
-    
+    /**
+     * 
+     * @param t the hashMap of username:tablesId
+     * @param username the username from which we should get the table
+     * @return 
+     */
     public static String[] getEmployeeTables(HashMap<String, String[]> t, String username){
         return t.get(username);
     }
     
     /**
      * Get the current employee in a file called current
-     * @param username
+     * @param username: username currently working
      * @throws FileNotFoundException 
      */
     public static void writeCurrentEmployee(String username) throws FileNotFoundException{
@@ -151,19 +161,18 @@ public class FileUtils {
         // Write it to a File in the file system
         // It could have been a Socket to another 
         // machine, a database, an in memory array, etc.
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("src/sprint2/files/o.ser")));
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("src/sprint2/files/orderQueue.ser")));
 
         // do the magic  
         oos.writeObject(o);
         // close the writing.
         oos.close();
-        System.out.println("Serialized successfully");
         
     }
     
     // Method for deserialization of object
     public static OrderQueue deserializeOrder() throws FileNotFoundException, IOException, ClassNotFoundException{
-            FileInputStream file = new FileInputStream("src/sprint2/files/o.ser");
+            FileInputStream file = new FileInputStream("src/sprint2/files/orderQueue.ser");
             ObjectInputStream in = new ObjectInputStream(file);
               
             
@@ -173,9 +182,33 @@ public class FileUtils {
             in.close();
             file.close();
               
-            System.out.println("Object has been deserialized ");
             return o;
     }
+    
+        public static void serializeMapOrders(HashMap<String,Order> o) throws FileNotFoundException, IOException{
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("src/sprint2/files/mapOrder.ser")));
+ 
+        oos.writeObject(o);
+        oos.close();
+        
+    }
+    
+    // Method for deserialization of object
+    public static HashMap<String,Order> deserializeMapOrder() throws FileNotFoundException, IOException, ClassNotFoundException{
+            FileInputStream file = new FileInputStream("src/sprint2/files/mapOrder.ser");
+            ObjectInputStream in = new ObjectInputStream(file);
+              
+            
+            HashMap<String,Order> o = null;
+            o = (HashMap<String,Order>)in.readObject();
+              
+            in.close();
+            file.close();
+              
+            return o;
+    }
+    
+    
 }
 
 

@@ -50,6 +50,8 @@ public class makeOrderPageController implements Initializable{
     private OrderQueue orders;
     private ObservableList<Item> itemsOrdered;
     
+    HashMap<String, Order> mapOrder;
+    
     @FXML
     void addItem(ActionEvent event) {
         Item item = this.itemView.getSelectionModel().getSelectedItem();
@@ -63,9 +65,11 @@ public class makeOrderPageController implements Initializable{
         if(PageUtils.showAlertConfirmation("ORDER SUBMISSION", "Would you like to submit the current order?")){
             Node source = (Node) event.getSource();
             PageUtils.closePage(source);
-            System.out.println(order.getItems());
+//            System.out.println(order.getItems());
             orders.getOrders().add(order);
+            mapOrder.put(FileUtils.getLines("src/sprint2/files/current.txt").get(1), order);
             FileUtils.serializeOrders(orders);
+            FileUtils.serializeMapOrders(mapOrder);
         }
         
     }
@@ -89,7 +93,6 @@ public class makeOrderPageController implements Initializable{
             try {
                 map = FileUtils.getItems(FileUtils.getLines("src/sprint2/files/Items.txt"));
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("couldnt find item file");
             }
             
@@ -108,14 +111,14 @@ public class makeOrderPageController implements Initializable{
             try {
                 waiterId = FileUtils.getLines("src/sprint2/files/current.txt").get(0);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Cannot find waiter ID");
             }
             String tableId = FileUtils.getLines("src/sprint2/files/current.txt").get(1);
             this.order = new Order();
             this.order.setServerId(waiterId);
             this.order.setTableId(tableId);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
+             System.out.println("Cannot find ORDER");
         }
         ArrayList<Item> items = new ArrayList<>();
         order.setItems(items);
@@ -125,7 +128,16 @@ public class makeOrderPageController implements Initializable{
         try {
             orders = FileUtils.deserializeOrder();
         } catch (IOException ex) {
+            System.out.println("ORDER not found");;
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        mapOrder = new HashMap<>();
+        try {
+            mapOrder = FileUtils.deserializeMapOrder();
+        } catch (IOException ex) {
+            System.out.println("map not found");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
