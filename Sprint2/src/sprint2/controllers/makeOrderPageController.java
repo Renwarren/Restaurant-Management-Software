@@ -1,6 +1,7 @@
 package sprint2.controllers;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,13 +14,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sprint2.models.Item;
 import sprint2.models.Order;
+import sprint2.models.OrderQueue;
 import sprint2.utils.FileUtils;
+import sprint2.utils.PageUtils;
 
 public class makeOrderPageController implements Initializable{
 
@@ -27,7 +31,7 @@ public class makeOrderPageController implements Initializable{
     private TableColumn<Item, String> TypeCol;
 
     @FXML
-    private ListView<String> currentOrder;
+    private ListView<Item> currentOrder;
 
     @FXML
     private TableColumn<Item, String> idCol;
@@ -43,29 +47,34 @@ public class makeOrderPageController implements Initializable{
 
     
     private Order order;
-    private ObservableList<String> itemsOrdered;
+    private OrderQueue orders;
+    private ObservableList<Item> itemsOrdered;
     
     @FXML
     void addItem(ActionEvent event) {
         Item item = this.itemView.getSelectionModel().getSelectedItem();
-        this.itemsOrdered.add("1x "+item.toString());
-//        order.getItems().add(item);
-
-        
+        this.itemsOrdered.add(item);
+        order.getItems().add(item);        
     }
 
     @FXML
-    void submitOrder(ActionEvent event) throws FileNotFoundException {
+    void submitOrder(ActionEvent event) throws IOException  {
+        
+        if(PageUtils.showAlertConfirmation("ORDER SUBMISSION", "Would you like to submit the current order?")){
+            Node source = (Node) event.getSource();
+            PageUtils.closePage(source);
+            System.out.println(order.getItems());
+            orders.getOrders().add(order);
+            FileUtils.serializeOrders(orders);
+        }
         
     }
     
     @FXML
     void deleteItem(ActionEvent event){
-        String item = currentOrder.getSelectionModel().getSelectedItem();
+        Item item = currentOrder.getSelectionModel().getSelectedItem();
         itemsOrdered.remove(item);
-        order.getItems().remove(item);
-        
-        
+        order.getItems().remove(item);        
     }
 
     @Override
@@ -91,7 +100,7 @@ public class makeOrderPageController implements Initializable{
                 String values[] = mapElement.getValue();
                 items.add(new Item(values[0],key,Double.parseDouble(values[1]),values[2]));
             }
-            
+//            ORDERS AND TABLE VIEW INIT
             this.itemView.setItems(FXCollections.observableArrayList(items));
             this.itemsOrdered = FXCollections.observableArrayList();
             this.currentOrder.setItems(this.itemsOrdered);
@@ -108,8 +117,19 @@ public class makeOrderPageController implements Initializable{
         } catch (FileNotFoundException ex) {
             Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ArrayList<Item> itemsOrdered = new ArrayList<>();
-        order.setItems(itemsOrdered);
+        ArrayList<Item> items = new ArrayList<>();
+        order.setItems(items);
+        
+        //orderqueue
+        orders = new OrderQueue();
+        try {
+            orders = FileUtils.deserializeOrder();
+        } catch (IOException ex) {
+            Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(makeOrderPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }
     

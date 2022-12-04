@@ -80,19 +80,18 @@ public class loginPageController {
             String Job = information[2];
             
             PageUtils.showAlertInformation("CONNECTION SUCCESSFUL", "Welcome back "+firstName+" !");
-            FileUtils.writeCurrentEmployee(user);
+            
             
             switch (Job) {
                 case "M":
-                    Manager manager = new Manager(user, firstName, lastName);
+                    FileUtils.writeCurrentEmployee(user);
                     page.loadPage("/sprint2/views/mainMenuPage.fxml");
                     break;
                 case "C":
-                    Cook cook = new Cook(user,firstName,lastName);
                     page.loadPage("/sprint2/views/orderPage.fxml");
                     break;
                 case "W":
-                    Waiter waiter = new Waiter(user,firstName,lastName);
+                    FileUtils.writeCurrentEmployee(user);
                     page.loadPage("/sprint2/views/floorPage.fxml");
                 default:
                     break;

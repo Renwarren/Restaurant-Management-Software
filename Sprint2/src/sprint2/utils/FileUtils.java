@@ -6,11 +6,18 @@
 package sprint2.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import sprint2.models.OrderQueue;
 
 /**
  *
@@ -132,6 +139,43 @@ public class FileUtils {
         
     }
     
+    
+    
+   //Order queue serialization
+    public static void serializeOrders(OrderQueue o) throws FileNotFoundException, IOException{
+
+        // The "ObjectOutputStream" class has the default 
+        // definition to serialize an object.
+        
+        // By using "FileOutputStream" we will 
+        // Write it to a File in the file system
+        // It could have been a Socket to another 
+        // machine, a database, an in memory array, etc.
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("src/sprint2/files/o.ser")));
+
+        // do the magic  
+        oos.writeObject(o);
+        // close the writing.
+        oos.close();
+        System.out.println("Serialized successfully");
+        
+    }
+    
+    // Method for deserialization of object
+    public static OrderQueue deserializeOrder() throws FileNotFoundException, IOException, ClassNotFoundException{
+            FileInputStream file = new FileInputStream("src/sprint2/files/o.ser");
+            ObjectInputStream in = new ObjectInputStream(file);
+              
+            
+            OrderQueue o = null;
+            o = (OrderQueue)in.readObject();
+              
+            in.close();
+            file.close();
+              
+            System.out.println("Object has been deserialized ");
+            return o;
+    }
 }
 
 

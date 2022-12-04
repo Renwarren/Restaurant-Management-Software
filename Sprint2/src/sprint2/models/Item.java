@@ -5,11 +5,13 @@
  */
 package sprint2.models;
 
+import java.io.Serializable;
+
 /**
  *
  * @author warre
  */
-public class Item {
+public class Item implements Serializable{
     
     String name;
     String id;
@@ -60,7 +62,7 @@ public class Item {
     
     @Override
     public String toString(){
-        return this.getName() + ": $" + String.valueOf(this.getPrice());
+        return "1x "+this.getName() + ": $" + String.valueOf(this.getPrice()) +"\n";
     }
     
     

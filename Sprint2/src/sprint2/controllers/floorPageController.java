@@ -27,13 +27,16 @@ import sprint2.utils.PageUtils;
 
 /**
  *
- * @author warre
+ * @author warren
  */
 public class floorPageController implements Initializable{
     
     
-    @FXML
+     @FXML
     private Button A1;
+
+    @FXML
+    private Button A11;
 
     @FXML
     private Button A2;
@@ -51,6 +54,9 @@ public class floorPageController implements Initializable{
     private Button B1;
 
     @FXML
+    private Button B11;
+
+    @FXML
     private Button B2;
 
     @FXML
@@ -63,28 +69,10 @@ public class floorPageController implements Initializable{
     private Button B5;
 
     @FXML
-    private Button C1;
-
-    @FXML
-    private Button C2;
-
-    @FXML
-    private Button C3;
-
-    @FXML
     private Button C4;
 
     @FXML
     private Button C5;
-
-    @FXML
-    private Button D1;
-
-    @FXML
-    private Button D2;
-
-    @FXML
-    private Button D3;
 
     @FXML
     private Button D4;
@@ -94,6 +82,9 @@ public class floorPageController implements Initializable{
 
     @FXML
     private Button E1;
+
+    @FXML
+    private Button E11;
 
     @FXML
     private Button E2;
@@ -111,6 +102,9 @@ public class floorPageController implements Initializable{
     private Button F1;
 
     @FXML
+    private Button F11;
+
+    @FXML
     private Button F2;
 
     @FXML
@@ -121,10 +115,10 @@ public class floorPageController implements Initializable{
 
     @FXML
     private Button F5;
-    
+
     @FXML
-    private Label label;
-    
+    private Button bar;
+
     @FXML
     private Button logoutButton;
 
@@ -153,8 +147,9 @@ public class floorPageController implements Initializable{
         String user = FileUtils.getLines("src/sprint2/files/current.txt").get(0);
         //load order page
         if(node.getStyle().equals("-fx-background-color: LIGHTGREEN;")){
-            new PageUtils().loadPage("/sprint2/views/makeOrderPage.fxml");
             FileUtils.writeCurrentTable(node.getId(),user);
+            new PageUtils().loadPage("/sprint2/views/makeOrderPage.fxml");
+            
                         
             node.setStyle("-fx-background-color: ORANGE;");
         }

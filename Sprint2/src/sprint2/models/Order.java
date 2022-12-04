@@ -5,13 +5,14 @@
  */
 package sprint2.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author warre
  */
-public class Order {
+public class Order implements Serializable{
     
     String id;
     String serverId;
@@ -57,8 +58,12 @@ public class Order {
         this.items = items;
     }
 
- 
-
+    @Override
+    public String toString(){
+        return "Order from table: "+this.getTableId()+" served by "+this.serverId+"\n"+this.getItems().toString();
+    }
+            
+            
     public Order() {
     }
     
