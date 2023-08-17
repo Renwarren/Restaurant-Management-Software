@@ -7,7 +7,7 @@ The Restaurant Management Software is a Java-based application built using Java 
 
 - Menu Control: Manage the restaurant's menu by adding, updating, or removing dishes. Categorize items, set prices, and ensure the menu is always up-to-date.
 
-- Inventory Tracking: Keep track of inventory levels for different ingredients and items on the menu, helping in stock management and reducing wastage. (Too be added)
+- Inventory Tracking: Keep track of inventory levels for different ingredients and items on the menu, helping in stock management and reducing wastage. (To be added)
 
 - Staff Scheduling: Schedule shifts for restaurant staff, assign roles, and manage their availability efficiently.
 
@@ -19,7 +19,7 @@ The Restaurant Management Software is a Java-based application built using Java 
 Clone this repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/restaurant-management.git
+git clone https://github.com/your-username/restaurant-management.git**
 ```
 
 Navigate to the project directory:
