@@ -19,7 +19,7 @@ The Restaurant Management Software is a Java-based application built using Java 
 Clone this repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/restaurant-management.git**
+git clone https://github.com/Renwarren/Sprint_2.git
 ```
 
 Navigate to the project directory:
